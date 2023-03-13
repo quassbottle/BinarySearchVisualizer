@@ -1,7 +1,11 @@
-﻿namespace BinarySearchVisualizer.Search
+﻿using System;
+using System.Collections.Generic;
+
+namespace BinarySearchVisualizer.Search
 {
-    public interface IArraySearchAlgorithm<in T>
+    public interface IArraySearchAlgorithm<T>
     {
+        T[] GetArray();
         int FindIndexOf(T item);
     }
 }

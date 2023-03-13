@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BinarySearchVisualizer.Search
 {
@@ -13,7 +14,9 @@ namespace BinarySearchVisualizer.Search
         public BinarySearch(int[] array)
         {
             _array = array;
-            _sortedArray = _array;
+            _sortedArray = new int[array.Length];
+            
+            Array.Copy(_array, _sortedArray, _array.Length);
             Array.Sort(_sortedArray);
         }
 
@@ -36,8 +39,8 @@ namespace BinarySearchVisualizer.Search
                 else right = mid;
             }
             
-            if (_array[left] == item) return left;
-            if (_array[right] == item) return right;
+            if (_sortedArray[left] == item) return left;
+            if (_sortedArray[right] == item) return right;
             return -1;
         }
     }
